@@ -34,8 +34,6 @@ const ShowMovieDetailsModal = ({route}: ShowMovieDetailsProps) => {
 
   const starsArray = generateStarsArray(item.imdb_rating)
 
-  console.log('starsArray', starsArray)
-
   return (
     <View>
       

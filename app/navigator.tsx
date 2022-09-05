@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import ShowMovieDetailsModal from './common/components/ShowMovieDetailsModal';
 import MoviesScreen from './movies/moviesScreen';
+import SearchScreen from './search/searchScreen';
 
 import { WookieMovie } from './movies/moviesTypes';
 
@@ -27,6 +28,8 @@ function TabNavigator() {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home-variant' : 'home-variant-outline';
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'database-search' : 'database-search-outline';
           }
 
           return (
@@ -41,6 +44,11 @@ function TabNavigator() {
         name="Home"
         options={{headerShown: false}}
         component={MoviesScreen}
+      />
+      <Tab.Screen
+        name="Search"
+        options={{headerShown: false}}
+        component={SearchScreen}
       />
     </Tab.Navigator>
   );

@@ -1,4 +1,4 @@
-describe('Example', () => {
+describe('Wookie Movies Home Screen', () => {
   beforeAll(async () => {
     await device.launchApp();
   });

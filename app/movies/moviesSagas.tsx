@@ -1,4 +1,5 @@
 import {put, takeLatest, all, call} from 'redux-saga/effects';
+import {sortMoviesIdsByGenre} from '../common/helpers';
 
 function* handleGetAllWookieMovies(): any {
   try {
@@ -17,19 +18,7 @@ function* handleGetAllWookieMovies(): any {
       // @ts-ignore ignoring json is not on Response type due to missing typings
       response.json,
     ])
-    const sortedMoviesIdsByGenre = responseBody.movies.reduce(
-      (genres: [{ id: any, data: any[]}], movie: {genres: string[]}) => {
-        movie.genres?.forEach((genre: string) => {
-          if (genres.find(e => e.id === genre)) {
-            const index = genres.map(object => object.id).indexOf(genre);
-            genres[index]['data'].push(movie);
-          } else {
-            genres.push({ id: genre, data: [movie]});
-          }
-        });
-        return genres;
-      }, []
-    );
+    const sortedMoviesIdsByGenre = sortMoviesIdsByGenre(responseBody.movies)
     yield put({
       type: 'GET_ALL_WOOKIE_MOVIES_SUCCESS',
       payload: sortedMoviesIdsByGenre,

@@ -7,7 +7,7 @@ import {Title} from 'react-native-paper';
 
 import NoInternetStatusBar from '../common/components/NoInternetStatusBar';
 import ErrorMessage from '../common/components/ErrorMessage';
-import WookieMovieList from '../common/components/WookieMoviesList';
+import WookieMoviesList from '../common/components/WookieMoviesList';
 
 import {selectMovies, getAllWookieMovies} from './moviesActions';
 
@@ -26,12 +26,12 @@ const MoviesScreen = () => {
         <Title testID="WookieTitle">{`WOOKIE`}</Title>
         <Title>{`MOVIES`}</Title>
       </View>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flex: 1, justifyContent: 'center'}}>
         {movies.error && (<ErrorMessage error={movies.error} />)}
         {movies.isLoading ? (
           <ActivityIndicator />
         ) : (
-          <WookieMovieList movies={movies.results} />
+          <WookieMoviesList movies={movies.results} />
         )}
       </View>
     </View>

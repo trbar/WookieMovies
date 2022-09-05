@@ -1,9 +1,10 @@
 import store from '../configureStore';
-
+import { SearchState } from '../search/searchTypes';
 import {MoviesState} from './moviesTypes';
 
 type State = {
   movies: MoviesState;
+  search: SearchState;
 };
 
 export const getAllWookieMovies = () =>
