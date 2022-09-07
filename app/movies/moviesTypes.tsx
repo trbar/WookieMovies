@@ -24,4 +24,5 @@ export type WookieMovie = {
   released_on: string;
   slug?: string;
   title: string;
+  isFavourite?: boolean;
 }

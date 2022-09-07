@@ -8,12 +8,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import ShowMovieDetailsModal from './common/components/ShowMovieDetailsModal';
 import MoviesScreen from './movies/moviesScreen';
 import SearchScreen from './search/searchScreen';
+import FavouritesScreen from './favourites/favouritesScreen';
 
 import { WookieMovie } from './movies/moviesTypes';
 
 export type RootStackParamList = {
   TabNavigator: undefined;
-  ShowMovieDetails: {item: WookieMovie};
+  ShowMovieDetails: {item: WookieMovie, isMovieFavourite?: boolean};
 };
 
 const Tab = createBottomTabNavigator();
@@ -30,8 +31,9 @@ function TabNavigator() {
             iconName = focused ? 'home-variant' : 'home-variant-outline';
           } else if (route.name === 'Search') {
             iconName = focused ? 'database-search' : 'database-search-outline';
+          } else if (route.name === 'Favourites') {
+            iconName = focused ? 'star-shooting' : 'star-shooting-outline';
           }
-
           return (
             <MaterialCommunityIcons name={iconName} size={size} color={color} testID={`WookieMoviesIcon${route.name}`}/>
           );
@@ -50,6 +52,7 @@ function TabNavigator() {
         options={{headerShown: false}}
         component={SearchScreen}
       />
+      <Tab.Screen name="Favourites" component={FavouritesScreen} />
     </Tab.Navigator>
   );
 }

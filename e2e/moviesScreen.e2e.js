@@ -24,7 +24,7 @@ describe('Wookie Movies Home Screen', () => {
   });
 
   it('movies details screen should show movie details', async () => {
-    await element(by.id('WookieMoviesPosterButtonthe-dark-knight-2008')).atIndex(1).tap();
+    await element(by.id('WookieMoviesPosterButtonthe-dark-knight-2008')).atIndex(0).tap();
     await waitFor(element(by.id('WookieMoviesDetailsBackgroundPoster'))).toBeVisible().withTimeout(5000);
     await expect(element(by.id('WookieMoviesDetailsYearLengthDirectors'))).toBeVisible();
     await expect(element(by.id('WookieMoviesDetailsCast'))).toBeVisible();

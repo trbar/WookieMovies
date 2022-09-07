@@ -29,7 +29,7 @@ const MoviesScreen = () => {
       <View style={{flex: 1, justifyContent: 'center'}}>
         {movies.error && (<ErrorMessage error={movies.error} />)}
         {movies.isLoading ? (
-          <ActivityIndicator />
+          <ActivityIndicator style={{ margin: 10 }}/>
         ) : (
           <WookieMoviesList movies={movies.results} />
         )}

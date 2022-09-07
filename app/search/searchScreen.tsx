@@ -36,10 +36,10 @@ const SearchScreen = () => {
           testID={'WookieMoviesSearchBar'}
         />
         {!netInfo.isConnected && <NoInternetStatusBar />}
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{flex: 1}}>
           {search.error && (<ErrorMessage error={search.error} />)}
           {search.isLoading ? (
-            <ActivityIndicator />
+            <ActivityIndicator style={{ margin: 10 }}/>
           ) : (
             <WookieMoviesList movies={search.results} />
           )}
