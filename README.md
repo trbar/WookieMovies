@@ -1,3 +1,19 @@
+### How To Run
+
+`npx react-native run-ios` to run ios version
+
+`npx react-native run-android` to run android version
+
+`detox build --configuration ios` to build app for e2e testing on iOS
+
+`detox build --configuration android` to build app for e2e testing on Android
+
+`detox test --configuration ios` to run e2e tests on iOS
+
+`detox test --configuration android` to run e2e tests on Android
+
+**Note:** you will have to change the emulator on Android in the detoxrc.json file so that it runs on your machine
+
 ### Objective
 
 Your assignment is to implement a React Native movie listing app.
